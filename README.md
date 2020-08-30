@@ -1,65 +1,32 @@
-# unrelate-vscode README
+# unrelate-vscode
 
-This is the README for your extension "unrelate-vscode". After writing up a brief description, we recommend including the following sections.
+This is a VSCode Extension for [unrelate](https://www.npmjs.com/package/unrelate). To understand what this extension is for, read the README for unrelate [here](https://github.com/lloydaf/unrelate/blob/master/README.md).
+
+---
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+> Note: All features listed here are specific to the currently open tab in your VSCode editor.
 
-For example if there is an image subfolder under your extension project workspace:
+* Set Current Directory as Base URL:
+  This command sets the baseUrl property to the directory of the currently open tab.
 
-\!\[feature X\]\(images/feature-x.png\)
+* Add Path to Current Directory:
+This command adds a path to the directory of the currently open tab.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+* Add Path to Current File:
+This command adds a path to the currently open tab.
 
-## Requirements
+* Cleanup Current Directory:
+This command cleans up the directory of the currently open tab.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+* Cleanup Current File:
+This command cleans up the currently open tab.
 
-## Extension Settings
+---
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## Usage
 
-For example:
+* To use this extension, install it, and open the command palette (`Ctrl+Shift+P` for Windows/Linux, `⇧⌘P` for Mac).
 
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+* Type `Unrelate` in the command pane. That will list the commands listed above, which you can select.
