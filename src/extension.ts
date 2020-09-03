@@ -15,7 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
 		const rootPath = vscode.workspace.rootPath || '';
 		process.chdir(rootPath);
 		vscode.window.showInformationMessage(`Cleaning up ${currentlyOpenTabfilePath}`);
-		cleanup(currentlyOpenTabfilePath.replace(rootPath, '.'));
+		cleanup(currentlyOpenTabfilePath.replace(rootPath, '.')).catch(error => vscode.window.showErrorMessage(error.message));
 	});
 
 	let cleanupDirectory = vscode.commands.registerCommand('unrelate:cleanup-directory', () => {
@@ -24,7 +24,7 @@ export function activate(context: vscode.ExtensionContext) {
 		const rootPath = vscode.workspace.rootPath || '';
 		process.chdir(rootPath);
 		vscode.window.showInformationMessage(`Cleaning up ${currentDirectory}`);
-		cleanup(currentDirectory.replace(rootPath, '.'));
+		cleanup(currentDirectory.replace(rootPath, '.')).catch(error => vscode.window.showErrorMessage(error.message));
 	});
 
 	let addPathCommand = vscode.commands.registerCommand('unrelate:addPath-directory', () => {
@@ -33,7 +33,7 @@ export function activate(context: vscode.ExtensionContext) {
 		const rootPath = vscode.workspace.rootPath || '';
 		process.chdir(rootPath);
 		vscode.window.showInformationMessage(`Adding Path to ${currentDirectory}`);
-		addPath(currentDirectory.replace(rootPath, '.'));
+		addPath(currentDirectory.replace(rootPath, '.')).catch(error => vscode.window.showErrorMessage(error.message));
 	});
 
 	let addPathToFile = vscode.commands.registerCommand('unrelate:addPath', () => {
@@ -41,7 +41,7 @@ export function activate(context: vscode.ExtensionContext) {
 		const rootPath = vscode.workspace.rootPath || '';
 		process.chdir(rootPath);
 		vscode.window.showInformationMessage(`Adding Path to ${currentlyOpenTabfilePath}`);
-		addPath(currentlyOpenTabfilePath.replace(rootPath, '.'));
+		addPath(currentlyOpenTabfilePath.replace(rootPath, '.')).catch(error => vscode.window.showErrorMessage(error.message));
 	});
 
 	let configureBaseUrlCommand = vscode.commands.registerCommand('unrelate:configureBaseUrl', () => {
@@ -50,10 +50,10 @@ export function activate(context: vscode.ExtensionContext) {
 		const rootPath = vscode.workspace.rootPath || '';
 		process.chdir(rootPath);
 		vscode.window.showInformationMessage(`Setting Base URL to ${currentDirectory}`);
-		configureBaseUrl(currentDirectory.replace(rootPath, '.'));
+		configureBaseUrl(currentDirectory.replace(rootPath, '.')).catch(error => vscode.window.showErrorMessage(error.message));
 	});
 
-	context.subscriptions.push(cleanupFileCommand, cleanupDirectory, addPathCommand, configureBaseUrlCommand);
+	context.subscriptions.push(cleanupFileCommand, cleanupDirectory, addPathCommand, addPathToFile, configureBaseUrlCommand);
 }
 
 // this method is called when your extension is deactivated
